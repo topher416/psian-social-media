@@ -29,19 +29,29 @@ export interface WorkflowStep {
 
 export const WORKFLOW_STEPS: WorkflowStep[] = [
   {
-    id: 'purpose',
-    title: '1. Keep PsiAN visible',
-    body: 'The job is to keep PsiAN’s social channels active with multiple posts each week.',
+    id: 'home',
+    title: '1. Open the PsiAN home page',
+    body: 'Start with the mission frame: psychotherapy is human care, and the work is about access, standards, and real therapy.',
   },
   {
-    id: 'topic',
-    title: '2. Pick one topic',
-    body: 'Choose the lane that matches the source material, then use examples to guide the tone.',
+    id: 'mission',
+    title: '2. Read mission and values',
+    body: 'Use PsiAN’s own language to anchor the tone before writing a post or a hook.',
   },
   {
-    id: 'draft',
-    title: '3. Draft from the source',
-    body: 'Turn existing PsiAN publications and positions into a clear post for each platform.',
+    id: 'source',
+    title: '3. Match a source page',
+    body: 'Use publications, advocacy, insurance, tech, library, or blog pages to shape the angle and evidence.',
+  },
+  {
+    id: 'lane',
+    title: '4. Choose a topic lane',
+    body: 'Select the lane that best matches the material so the example set and prompts stay focused.',
+  },
+  {
+    id: 'kit',
+    title: '5. Open the Claude kit',
+    body: 'When deeper help is useful, use the downloadable kit for hooks, prompts, and social best practices.',
   },
 ];
 
@@ -190,7 +200,7 @@ export const SITE_RESOURCES: SiteResource[] = [
 export const LEARN: LearnSection[] = [
   {
     id: 'purpose',
-    heading: 'What Cassie is doing',
+    heading: 'What the workflow is doing',
     paragraphs: [
       'Keep PsiAN’s social channels active with multiple posts each week.',
       'Build each post from PsiAN’s existing publications and positions so the voice stays consistent.',
@@ -210,10 +220,10 @@ export const LEARN: LearnSection[] = [
   },
   {
     id: 'who',
-    heading: 'Who this is for',
+    heading: 'Who the workflow is for',
     paragraphs: [
-      'Cassie does not need prior social media experience to do this job well.',
-      'The app is meant to guide the process so the work feels structured instead of blank.',
+      'The workflow is meant to guide the process so the work feels structured instead of blank.',
+      'The point is to reduce guesswork and keep the output aligned with PsiAN’s own material.',
     ],
   },
   {
@@ -232,7 +242,7 @@ export const LEARN: LearnSection[] = [
     id: 'guardrails',
     heading: 'Helpful guardrails',
     paragraphs: [
-      'The app flags handle usage, length, and other common mistakes so she does not have to memorize them.',
+      'The app flags handle usage, length, and other common mistakes so they do not have to be memorized.',
     ],
     bullets: [
       'No ALL CAPS and no heavy punctuation.',

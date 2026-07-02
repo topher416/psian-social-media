@@ -20,8 +20,8 @@ This project helps create PsiAN social posts that:
 
 ## The Job
 
-Cassie is not expected to invent the organization's message from scratch.
-She is expected to:
+The writer is not expected to invent the organization's message from scratch.
+The workflow is to:
 - read the current PsiAN site and related materials
 - pick a topic lane
 - identify the strongest point
@@ -59,6 +59,5 @@ The content should usually do three things:
 Think of the work like this:
 - PsiAN already has the research and stance
 - Claude helps turn that into a hook
-- Cassie turns that into a post
+- the writer turns that into a post
 - the app and this doc kit keep the process organized
-

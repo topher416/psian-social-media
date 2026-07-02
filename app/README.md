@@ -1,8 +1,8 @@
-# Cassie's PsiAN Social Studio
+# PsiAN Social Studio
 
 A small, friendly web app for drafting PsiAN social posts that feed the existing Python
-publishing pipeline (`../generate_csvs.py` → CSVs → Vista Social). Cassie composes; Topher
-reviews and publishes.
+publishing pipeline (`../generate_csvs.py` → CSVs → Vista Social). The writer drafts;
+Topher reviews and publishes.
 
 Plan: `../../topher416/docs/plans/2026-07-01-feat-cassie-psian-social-app-plan.md`
 

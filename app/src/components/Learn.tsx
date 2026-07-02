@@ -7,8 +7,8 @@ export function Learn() {
         <div className="eyebrow">Learn PsiAN</div>
         <h1>Clear purpose. Simple lanes. Real examples.</h1>
         <p className="lead">
-          Cassie is helping keep PsiAN’s channels active with multiple posts each week. She does not need to be a social
-          media expert first; the app gives her a topic, a few examples, and a structure to follow.
+          Start with PsiAN’s site, then choose a topic lane, then use the examples and prompt kit to shape a post.
+          The goal is steady output from PsiAN’s own publications and positions.
         </p>
         <div className="actions" style={{ marginTop: 14 }}>
           <a className="download-cta" href="/psian-claude-project-kit.zip" download>
@@ -37,7 +37,8 @@ export function Learn() {
       </div>
 
       <section className="card">
-        <h2>How the workflow feels</h2>
+        <h2>Landing flow</h2>
+        <p className="muted small">This is the order to follow when the page first opens.</p>
         <div className="workflow-grid">
           {WORKFLOW_STEPS.map((step) => (
             <article className="workflow-step" key={step.id}>
@@ -50,7 +51,7 @@ export function Learn() {
 
       <section className="card">
         <h2>Read PsiAN first</h2>
-        <p className="muted small">These are the pages that should shape the draft before she writes.</p>
+        <p className="muted small">These are the pages that should shape the draft before writing starts.</p>
         <div className="resource-grid">
           {SITE_RESOURCES.map((resource) => (
             <a className="resource-card" key={resource.id} href={resource.href} target="_blank" rel="noreferrer">

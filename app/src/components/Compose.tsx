@@ -51,7 +51,7 @@ export function Compose({
     const p = newPost(posts);
     upsert({
       ...p,
-      title: topic ? `${topic.label} draft` : 'PsiAN draft',
+      title: topic ? topic.label : 'PsiAN post',
     });
     setSelected(p.postNumber);
   };
@@ -68,9 +68,8 @@ export function Compose({
           <div>
             <h1>Keep PsiAN active with a steady posting rhythm.</h1>
             <p className="lead">
-              Cassie does not need prior social media experience. The job is to turn PsiAN’s existing
-              publications and positions into multiple posts each week, with the app guiding topic choice,
-              examples, and structure.
+              Start with PsiAN’s site, then choose a topic lane, then write from the source material.
+              The app keeps the path narrow enough that each draft starts from the right place.
             </p>
             <div className="hero-notes">
               <div className="note-card">
@@ -91,17 +90,18 @@ export function Compose({
             <div className="hero-side-card">
               <span className="platform-tag">How it works</span>
               <ol className="mini-steps">
-                <li>Pick a topic.</li>
-                <li>Read a few examples.</li>
-                <li>Start a draft.</li>
+                <li>Open PsiAN first.</li>
+                <li>Pick a topic lane.</li>
+                <li>Read examples and sources.</li>
+                <li>Start a blank draft.</li>
               </ol>
             </div>
             <button className="primary-cta" onClick={create} type="button">
-              Start a {topic?.label.toLowerCase() ?? 'draft'}
+              Start blank draft
             </button>
             <div className="site-source-card">
               <span className="platform-tag">Read PsiAN first</span>
-              <p>These pages should shape the angle, evidence, and tone before she starts drafting.</p>
+              <p>These pages should shape the angle, evidence, and tone before drafting starts.</p>
               <div className="source-link-list">
                 {SITE_RESOURCES.slice(0, 4).map((resource) => (
                   <a key={resource.id} href={resource.href} target="_blank" rel="noreferrer">
@@ -142,6 +142,7 @@ export function Compose({
             <div>
               <h2 style={{ marginBottom: 4 }}>{topic.label}</h2>
               <p className="muted small">{topic.prompt}</p>
+              <p className="muted small">Starting a draft creates a blank post with the topic title only.</p>
             </div>
           </div>
           <div className="source-link-list topic-sources">
@@ -163,7 +164,7 @@ export function Compose({
             ))}
           </div>
           <div className="actions" style={{ marginTop: 14 }}>
-            <button onClick={create} type="button">Start draft from this topic</button>
+            <button onClick={create} type="button">Start blank draft from this topic</button>
           </div>
         </section>
       </div>
@@ -183,8 +184,8 @@ export function Compose({
         <div className="card start-panel">
           <h2>Ready to begin</h2>
           <p className="muted">
-            Pick a topic above, then start a draft. The examples will show the tone, and the editor will help keep the
-            post aligned with PsiAN’s voice.
+            Pick a topic above, then start a blank draft. The examples show the tone, and the editor keeps the post
+            aligned with PsiAN’s voice.
           </p>
         </div>
       )}
