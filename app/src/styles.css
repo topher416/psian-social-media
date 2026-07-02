@@ -1,0 +1,144 @@
+:root {
+  --bg: #f6f4ef;
+  --card: #ffffff;
+  --ink: #1f2a2a;
+  --muted: #6b7a79;
+  --line: #e4e0d7;
+  --teal: #0e7c7b;
+  --teal-dark: #0a5f5e;
+  --teal-soft: #e3f1f0;
+  --amber: #b7791f;
+  --amber-soft: #fdf3e2;
+  --red: #b4413c;
+  --red-soft: #fbe9e8;
+  --green: #2f7d4f;
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 15px/1.55 -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  padding: 9px 16px;
+  background: var(--teal);
+  color: #fff;
+  transition: background 0.15s, transform 0.05s;
+}
+button:hover { background: var(--teal-dark); }
+button:active { transform: translateY(1px); }
+button:disabled { background: #c4c9c8; cursor: not-allowed; }
+button.ghost { background: transparent; color: var(--teal); border: 1px solid var(--line); }
+button.ghost:hover { background: var(--teal-soft); }
+button.danger { background: transparent; color: var(--red); border: 1px solid var(--line); }
+button.danger:hover { background: var(--red-soft); }
+
+input, textarea {
+  font: inherit;
+  color: var(--ink);
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+  resize: vertical;
+}
+input:focus, textarea:focus { outline: 2px solid var(--teal-soft); border-color: var(--teal); }
+
+/* ---- shell ---- */
+.app { max-width: 1080px; margin: 0 auto; padding: 0 18px 80px; }
+.topbar {
+  display: flex; align-items: center; gap: 14px;
+  padding: 18px 4px 12px;
+}
+.logo { font-weight: 700; font-size: 18px; color: var(--teal-dark); }
+.logo small { display: block; font-weight: 500; color: var(--muted); font-size: 12px; }
+.tabs { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+.tab {
+  background: transparent; color: var(--muted); border: 1px solid transparent;
+  padding: 8px 14px; border-radius: 999px;
+}
+.tab:hover { background: #fff; color: var(--ink); }
+.tab.active { background: var(--teal); color: #fff; }
+
+.card {
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+h1 { font-size: 24px; margin: 6px 0 2px; }
+h2 { font-size: 18px; margin: 0 0 10px; }
+h3 { font-size: 15px; margin: 0 0 6px; }
+.muted { color: var(--muted); }
+.small { font-size: 13px; }
+.pill { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+.pill.draft { background: #eee; color: #555; }
+.pill.sent { background: var(--teal-soft); color: var(--teal-dark); }
+.pill.approved { background: #e3f3e9; color: var(--green); }
+.pill.changes_requested { background: var(--amber-soft); color: var(--amber); }
+
+/* ---- gate ---- */
+.gate { min-height: 100vh; display: grid; place-items: center; }
+.gate .card { max-width: 380px; text-align: center; }
+
+/* ---- compose ---- */
+.compose { display: grid; grid-template-columns: 240px 1fr; gap: 16px; align-items: start; }
+.draftlist { position: sticky; top: 12px; }
+.draftlist .item {
+  padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line);
+  background: #fff; margin-bottom: 8px; cursor: pointer;
+}
+.draftlist .item:hover { border-color: var(--teal); }
+.draftlist .item.active { border-color: var(--teal); background: var(--teal-soft); }
+.draftlist .item .t { font-weight: 600; font-size: 14px; }
+.field { margin-bottom: 16px; }
+.field label { font-weight: 600; font-size: 13px; display: block; margin-bottom: 5px; }
+.counter { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.counter.warn { color: var(--amber); }
+.counter.over { color: var(--red); font-weight: 600; }
+.comment-row { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 8px; }
+.comment-row textarea { flex: 1; }
+.lint { margin-top: 10px; }
+.lint .v { padding: 8px 12px; border-radius: 8px; margin-bottom: 6px; font-size: 13px; }
+.lint .v.error { background: var(--red-soft); color: var(--red); }
+.lint .v.warn { background: var(--amber-soft); color: var(--amber); }
+.lint .ok { color: var(--green); font-size: 13px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+.hint { background: var(--teal-soft); color: var(--teal-dark); padding: 8px 12px; border-radius: 8px; font-size: 13px; }
+
+/* ---- voice ---- */
+.example { border-bottom: 1px solid var(--line); padding: 14px 0; }
+.example:last-child { border-bottom: none; }
+.example .snip { color: var(--muted); font-size: 13px; margin-top: 4px; white-space: pre-wrap; }
+.platform-tag { font-size: 11px; font-weight: 700; color: var(--teal); text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ---- progress ---- */
+.bar { height: 16px; background: #eee; border-radius: 999px; overflow: hidden; margin: 10px 0; }
+.bar > span { display: block; height: 100%; background: linear-gradient(90deg, var(--teal), #37a) ; transition: width 0.6s; }
+.stats { display: flex; gap: 24px; margin-top: 8px; }
+.stats .n { font-size: 28px; font-weight: 700; color: var(--teal-dark); }
+
+/* ---- modal ---- */
+.overlay { position: fixed; inset: 0; background: rgba(20, 30, 30, 0.4); display: grid; place-items: center; padding: 20px; z-index: 10; }
+.modal { background: #fff; border-radius: var(--radius); max-width: 720px; width: 100%; max-height: 85vh; overflow: auto; padding: 22px; box-shadow: var(--shadow); }
+.modal pre { background: #f3f1ec; border: 1px solid var(--line); border-radius: 10px; padding: 14px; overflow: auto; font-size: 12.5px; white-space: pre-wrap; }
+
+.learn p { margin: 0 0 10px; }
+.learn ul { margin: 6px 0 0; padding-left: 20px; }
+.learn li { margin-bottom: 4px; }
+.review-flag { background: var(--amber-soft); color: var(--amber); border-radius: 8px; padding: 8px 12px; font-size: 13px; margin-bottom: 14px; }
+
+@media (max-width: 720px) {
+  .compose { grid-template-columns: 1fr; }
+  .draftlist { position: static; }
+}
