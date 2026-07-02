@@ -1,10 +1,3 @@
-// learn.ts — onboarding content for the "Learn PsiAN" tab.
-//
-// ⚠️ DRAFT FOR TOPHER'S REVIEW. Synthesized from the existing posts, CLAUDE.md, and
-// WORKFLOW.md in this repo — not from official PsiAN source material yet. Replace/refine
-// the copy with PsiAN-approved language before Cassie relies on it. (House style: "health
-// care" as two words; PsiAN's own published copy uses "mental healthcare" and is quoted as-is.)
-
 export interface LearnSection {
   id: string;
   heading: string;
@@ -12,61 +5,239 @@ export interface LearnSection {
   bullets?: string[];
 }
 
+export interface StarterTopic {
+  id: string;
+  label: string;
+  objective: string;
+  prompt: string;
+  examples: number[];
+  sources: { label: string; href: string }[];
+}
+
+export interface SiteResource {
+  id: string;
+  label: string;
+  href: string;
+  note: string;
+}
+
+export interface WorkflowStep {
+  id: string;
+  title: string;
+  body: string;
+}
+
+export const WORKFLOW_STEPS: WorkflowStep[] = [
+  {
+    id: 'purpose',
+    title: '1. Keep PsiAN visible',
+    body: 'The job is to keep PsiAN’s social channels active with multiple posts each week.',
+  },
+  {
+    id: 'topic',
+    title: '2. Pick one topic',
+    body: 'Choose the lane that matches the source material, then use examples to guide the tone.',
+  },
+  {
+    id: 'draft',
+    title: '3. Draft from the source',
+    body: 'Turn existing PsiAN publications and positions into a clear post for each platform.',
+  },
+];
+
+export const STARTER_TOPICS: StarterTopic[] = [
+  {
+    id: 'cadence',
+    label: 'Weekly cadence',
+    objective: 'Keep the channels moving this week without starting from zero.',
+    prompt: 'Use a recent PsiAN position or publication and turn it into one clear, concise post.',
+    examples: [16, 19, 30],
+    sources: [
+      { label: 'Publications', href: 'https://www.psian.org/publications' },
+      { label: 'Blog', href: 'https://www.psian.org/blog' },
+    ],
+  },
+  {
+    id: 'therapy',
+    label: 'Therapy basics',
+    objective: 'Explain what makes depth-oriented therapy different and why it matters.',
+    prompt: 'Summarize a PsiAN belief about therapy in plain language and end with a simple next step.',
+    examples: [5, 6, 7],
+    sources: [
+      { label: 'Home', href: 'https://www.psian.org/' },
+      { label: 'Case for Depth Therapy', href: 'https://www.psian.org/the-case-for-depth-therapy' },
+      { label: 'Publications', href: 'https://www.psian.org/publications' },
+    ],
+  },
+  {
+    id: 'research',
+    label: 'Research and evidence',
+    objective: 'Translate a study or statistic into a readable social post.',
+    prompt: 'Lead with the takeaway, explain why it matters, then point back to PsiAN’s position.',
+    examples: [19, 29, 33],
+    sources: [
+      { label: 'Publications', href: 'https://www.psian.org/publications' },
+      { label: 'Library', href: 'https://www.psian.org/library' },
+    ],
+  },
+  {
+    id: 'ai',
+    label: 'AI and privacy',
+    objective: 'Write about AI, privacy, and other risks without sounding alarmist.',
+    prompt: 'Use a measured tone, stick to the facts, and end with a clear PsiAN stance.',
+    examples: [1, 2, 18],
+    sources: [
+      { label: 'Tech', href: 'https://www.psian.org/tech' },
+      { label: 'PsiAN’s position on mental health apps', href: 'https://www.psian.org/blog/psians-position-on-mental-health-apps' },
+      { label: 'Advocacy', href: 'https://www.psian.org/advocacy' },
+    ],
+  },
+  {
+    id: 'access',
+    label: 'Insurance and access',
+    objective: 'Explain barriers to care and what PsiAN is pushing to change.',
+    prompt: 'Use one concrete barrier, one plain-language consequence, and one action for readers.',
+    examples: [21, 25, 26],
+    sources: [
+      { label: 'Advocacy', href: 'https://www.psian.org/advocacy' },
+      { label: 'Insurance guide', href: 'https://www.psian.org/claim-denials-psychotherapists' },
+      { label: 'Private practice hub', href: 'https://www.psian.org/private-psychotherapy-practice' },
+    ],
+  },
+  {
+    id: 'spotlight',
+    label: 'Member spotlight',
+    objective: 'Highlight a person, partner, or publication that reflects PsiAN’s values.',
+    prompt: 'Introduce the person or partner, then connect their work back to PsiAN’s mission.',
+    examples: [14, 15, 37],
+    sources: [
+      { label: 'Media', href: 'https://www.psian.org/media' },
+      { label: 'Blog', href: 'https://www.psian.org/blog' },
+      { label: 'Publications', href: 'https://www.psian.org/publications' },
+    ],
+  },
+];
+
+export const SITE_RESOURCES: SiteResource[] = [
+  {
+    id: 'claude-kit',
+    label: 'Claude project kit',
+    href: '/psian-claude-project-kit.zip',
+    note: 'Download this when you want Claude to help with hooks, post drafts, and social best practices.',
+  },
+  {
+    id: 'home',
+    label: 'PsiAN home',
+    href: 'https://www.psian.org/',
+    note: 'Fast read for the mission: psychotherapy is human care, and the site frames the organization around access and clinical standards.',
+  },
+  {
+    id: 'mission',
+    label: 'Mission and values',
+    href: 'https://www.psian.org/mission-and-values',
+    note: 'Use this to keep the tone grounded, direct, and aligned with PsiAN’s actual mission.',
+  },
+  {
+    id: 'depth',
+    label: 'Case for depth therapy',
+    href: 'https://www.psian.org/the-case-for-depth-therapy',
+    note: 'Best source for the core proof points about depth, insight, relationship, effectiveness, and what patients want.',
+  },
+  {
+    id: 'publications',
+    label: 'Publications',
+    href: 'https://www.psian.org/publications',
+    note: 'Use for articles, toolkit language, book references, and recurring themes.',
+  },
+  {
+    id: 'advocacy',
+    label: 'Advocacy',
+    href: 'https://www.psian.org/advocacy',
+    note: 'Current positions and policy alerts that can shape timely posts.',
+  },
+  {
+    id: 'insurance',
+    label: 'Insurance guide',
+    href: 'https://www.psian.org/claim-denials-psychotherapists',
+    note: 'Useful for access, denials, appeals, and practical language about barriers to care.',
+  },
+  {
+    id: 'practice',
+    label: 'Private practice hub',
+    href: 'https://www.psian.org/private-psychotherapy-practice',
+    note: 'Best source for PMC, autonomy, and corporate-care framing.',
+  },
+  {
+    id: 'tech',
+    label: 'Tech',
+    href: 'https://www.psian.org/tech',
+    note: 'Use for AI, apps, privacy, and automated-substitute messaging.',
+  },
+  {
+    id: 'library',
+    label: 'Library',
+    href: 'https://www.psian.org/library',
+    note: 'Research-backed material when she needs citations and evidence language.',
+  },
+  {
+    id: 'blog',
+    label: 'Blog',
+    href: 'https://www.psian.org/blog',
+    note: 'Good for current phrasing, recent issues, and how PsiAN talks about ongoing work.',
+  },
+];
+
 export const LEARN: LearnSection[] = [
   {
-    id: 'welcome',
-    heading: 'Hi Cassie — welcome to the team 👋',
+    id: 'purpose',
+    heading: 'What Cassie is doing',
     paragraphs: [
-      "You're helping the Psychotherapy Action Network (PsiAN) reach people who care about real, lasting mental health care. This is volunteer work, and it matters: you're giving a small but mighty advocacy organization a consistent voice online.",
-      "Your job isn't to invent a message from scratch. PsiAN already has a clear point of view and a library of writing. Your job is to turn that into steady, well-crafted social posts — and this app is built to make that feel easy and even fun.",
+      'Keep PsiAN’s social channels active with multiple posts each week.',
+      'Build each post from PsiAN’s existing publications and positions so the voice stays consistent.',
+    ],
+  },
+  {
+    id: 'how',
+    heading: 'How to use the app',
+    paragraphs: [
+      'Pick a topic, open a few examples, then draft one platform version at a time.',
+    ],
+    bullets: [
+      'Choose a topic lane that matches the source material.',
+      'Borrow structure from the examples, not just the wording.',
+      'Use the built-in checks to keep the draft clean.',
     ],
   },
   {
     id: 'who',
-    heading: 'Who is PsiAN?',
+    heading: 'Who this is for',
     paragraphs: [
-      'PsiAN — the Psychotherapy Action Network — is a nonprofit advocacy organization fighting to protect public access to therapies of depth, insight, and relationship: the kind of therapy that helps people get to the root of their problems, not just manage symptoms.',
-      'They bring together clinicians, researchers, and advocates to push back on the forces reshaping mental health care — and to keep meaningful psychotherapy available and understood.',
-    ],
-  },
-  {
-    id: 'why',
-    heading: 'Why the work matters',
-    paragraphs: [
-      "In PsiAN's national research, about 90 percent of Americans said they want therapy that helps them get to the root of their problems — not just short-term symptom management. But the marketplace increasingly sells the opposite: app-based “solutions,” symptom checklists, and quick fixes designed to scale rather than to heal.",
-      'PsiAN names that gap plainly and organizes to close it — through public education, research, policy comments, and coalition-building with partner organizations.',
-    ],
-    bullets: [
-      'Access — keeping depth-oriented therapy available and covered.',
-      'Corporate capture — scrutinizing how venture capital, private equity, and insurer-owned platforms are reshaping care.',
-      'Public understanding — helping people know what good therapy actually looks like.',
-    ],
-  },
-  {
-    id: 'role',
-    heading: 'What you’ll actually do',
-    paragraphs: [
-      'Draft social posts for PsiAN across platforms, using the voice and source material already in this app. You compose; Topher reviews and does the final publish. You’ll build up weeks — then months — of content, and you’ll join a short monthly call with the PsiAN team (with Topher there too).',
-    ],
-    bullets: [
-      'Write in the Compose tab — the app checks your work as you go.',
-      'Borrow phrasing and structure from the Voice & Examples tab (80 real past posts).',
-      'When a post is ready, hit “Send to Topher” — that hands off a clean file for publishing.',
-      'Watch your progress fill up toward a full quarter of content.',
+      'Cassie does not need prior social media experience to do this job well.',
+      'The app is meant to guide the process so the work feels structured instead of blank.',
     ],
   },
   {
     id: 'voice',
-    heading: 'The PsiAN voice (your north star)',
+    heading: 'PsiAN’s voice',
     paragraphs: [
-      'PsiAN sounds professional, measured, and educational — never alarmist. Cite research when you can, and always end with a clear next step.',
+      'PsiAN sounds professional, measured, and educational.',
     ],
     bullets: [
-      'Professional and measured — no hype, no fear-based language.',
-      'Educational, not alarmist — explain, don’t shout.',
-      'No ALL CAPS, no excessive punctuation (!!!), no emojis.',
-      'Use the handle @PsiAN, and point people to psian.org.',
-      'The app flags all of these for you automatically — you don’t have to memorize them.',
+      'Use a clear point of view without hype or fear.',
+      'Keep the tone informative and direct.',
+      'End with a simple next step when possible.',
+    ],
+  },
+  {
+    id: 'guardrails',
+    heading: 'Helpful guardrails',
+    paragraphs: [
+      'The app flags handle usage, length, and other common mistakes so she does not have to memorize them.',
+    ],
+    bullets: [
+      'No ALL CAPS and no heavy punctuation.',
+      'Use @PsiAN and psian.org where relevant.',
+      'Rely on the examples when you need a model.',
     ],
   },
 ];

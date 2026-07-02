@@ -11,7 +11,7 @@ import { ExportDialog } from './components/ExportDialog';
 
 type Tab = 'learn' | 'voice' | 'compose' | 'progress';
 const TABS: { id: Tab; label: string }[] = [
-  { id: 'compose', label: '✍️ Compose' },
+  { id: 'compose', label: 'Start here' },
   { id: 'voice', label: '📚 Voice & Examples' },
   { id: 'learn', label: '💡 Learn PsiAN' },
   { id: 'progress', label: '📈 Progress' },
@@ -40,7 +40,7 @@ function Gate({ onUnlock }: { onUnlock: () => void }) {
     <div className="gate">
       <form className="card" onSubmit={submit}>
         <div className="logo" style={{ fontSize: 22 }}>PsiAN Social</div>
-        <p className="muted small">Cassie’s content studio</p>
+        <p className="muted small">Multiple posts each week, built from PsiAN’s own publications and positions.</p>
         <input autoFocus type="password" placeholder="Passphrase" value={value} onChange={(e) => { setValue(e.target.value); setErr(false); }} style={{ margin: '12px 0' }} />
         {err && <div className="v error" style={{ marginBottom: 10 }}>Not quite — try again.</div>}
         <button type="submit" style={{ width: '100%' }}>Enter</button>
@@ -86,7 +86,7 @@ function Workspace() {
   return (
     <div className="app">
       <header className="topbar">
-        <div className="logo">PsiAN Social<small>Cassie’s content studio</small></div>
+        <div className="logo">PsiAN Social<small>Guided drafting for steady social output</small></div>
         <nav className="tabs">
           {TABS.map((t) => (
             <button key={t.id} className={`tab ${tab === t.id ? 'active' : ''}`} onClick={() => setTab(t.id)}>{t.label}</button>
